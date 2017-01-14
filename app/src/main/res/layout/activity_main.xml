@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:diagonal="http://schemas.android.com/tools"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+ tools:context="me.amald.youtubedownloader.MainActivity">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="300dp"
+                    android:layout_height="250dp"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="3dp"
+                    app:cardUseCompatPadding="true"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/cv">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        >
+                        <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp">
+                            <View
+                                android:layout_alignParentStart="true"
+                                android:layout_width="8dp"
+                                android:layout_height="match_parent"
+                                android:background="#2fa881"
+                                />
+                            <TextView
+                                android:layout_centerVertical="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="50dp"
+                                android:text="ConvertMe"
+                                android:textColor="#FFCC00"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                />
+                        </RelativeLayout>
+                        <LinearLayout
+                            android:layout_marginTop="40dp"
+                            android:paddingStart="50dp"
+                            android:paddingEnd="30dp"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+                            <android.support.design.widget.TextInputLayout
+                                android:textColorHint="#c5c5c5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <EditText
+                                    android:textSize="20sp"
+                                    android:hint="Put link here"
+                                    android:textColor="#2fa881"
+                                    android:id="@+id/editTextLink"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="textPersonName"
+                                    android:background="@drawable/selector_bg_edit"
+                                    android:textCursorDrawable="@drawable/bg_input_cursor"
+                                    android:paddingBottom="10dp"
+                                    />
+                            </android.support.design.widget.TextInputLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:paddingStart="50dp"
+                            android:paddingEnd="30dp"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/downloadme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fabSize="normal"
+                    android:src="@drawable/plus"
+                    android:transitionName="loginFab"
+                    android:layout_alignTop="@id/cv"
+                    android:layout_marginTop="25dp"
+                    android:layout_alignEnd="@id/cv"
+                    android:layout_marginEnd="-20dp"
+                    />
+
+
+            </RelativeLayout>
+
+
+            <com.pitt.library.fresh.FreshDownloadView
+                android:id="@+id/pitt"
+                app:circular_color="#000000"
+                app:progress_text_size="20dp"
+                app:circular_progress_color="@color/colorAccent"
+                android:layout_below="@+id/cv"
+                android:visibility="gone"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/donwload"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:visibility="gone"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1.5">
+
+
+            <include layout="@layout/song_card"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="freshdownloadview-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.pitt.fresh.library/freshdownloadview/1.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.pitt.fresh.library/freshdownloadview/1.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.pitt.fresh.library/freshdownloadview/1.0/a4ea411b8de35dccd734d4199f121d6962c64a42/freshdownloadview-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

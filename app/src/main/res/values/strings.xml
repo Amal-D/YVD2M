@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">YoutubeDownloader</string>
+    <string name="link">paste your link here </string>
+    <string name="Download">Download</string>
+    <string name="apikey">1234567</string>
+
+    <string name="login_success">login success</string>
+    <string name="login">LOGIN</string>
+    <string name="Username">Username</string>
+    <string name="Password">Password</string>
+    <string name="forgot_your_password">Forgot your password ?</string>
+    <string name="go">GO</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="next">NEXT</string>
+    <string name="register">REGISTER</string>
+</resources>
