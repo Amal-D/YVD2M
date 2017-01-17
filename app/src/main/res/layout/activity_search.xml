@@ -1,0 +1,155 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="RtlHardcoded">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/mainAppbar"
+        android:background="#00000000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/mainCollapsing"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_toolbar"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+            <FrameLayout
+                android:id="@+id/mainframelayoutTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="60dp"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.3">
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayoutTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="horizontal"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <EditText
+                                android:id="@+id/edt_paste"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/bg_input_field"
+                                android:hint="input the youtube link"
+                                android:drawableLeft="@drawable/ic_search_black_24dp"
+                                android:textColorHint="#636363"
+                                android:drawablePadding="10dp"
+                                android:paddingLeft="20dp"
+                                android:textColor="#CF3396"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/btn_dl"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:textColor="#CF3396"
+                                android:gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:background="@drawable/bg_input_field"
+                                android:text="GO"/>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+
+
+            </FrameLayout>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/mainToolbar"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="bottom|center_horizontal"
+            app:title="">
+
+            <RelativeLayout
+                android:id="@+id/relativeLayoutTitletwo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <Util.custom.NavigationTabStrip
+                    android:id="@+id/strip_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:background="#00000000"
+                    app:nts_active_color="#CF3396"
+                    app:nts_color="#ff1323"
+                    app:nts_corners_radius="1dp"
+                    app:nts_inactive_color="#000000"
+                    app:nts_size="15sp"
+                    app:nts_titles="@array/titles"
+                    app:nts_weight="3dp" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <Util.WrapViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+
+    </RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

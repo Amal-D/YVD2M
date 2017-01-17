@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
         setContentView(R.layout.activity_main);
 
 
+
         registerReceiver();
 
         //Create working folder
@@ -208,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
                     .make(findViewById(R.id.downloadme), "not connected", Snackbar.LENGTH_LONG);
             snackbar.show();
 
-            resultTxt.setText("Downloading failed...!!!");
+//            resultTxt.setText("Downloading failed...!!!");
 
         }
 
@@ -312,7 +313,7 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
 
                                 freshDownloadView.setVisibility(View.VISIBLE);
 
-                                resultTxt.setText("Downloading started..!!!");
+                               // resultTxt.setText("Downloading started..!!!");
 
 
 

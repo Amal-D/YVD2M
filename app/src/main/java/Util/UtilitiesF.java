@@ -12,10 +12,29 @@ public class UtilitiesF {
 
     String domainsplit="";
     String urldownlad = "";
+    String sizeconvert = "";
 
     public UtilitiesF(){
 
 
+    }
+
+
+
+    public String sliptsize(String url){
+
+        String substr = ".";
+
+        if(url!= null && !url.equals("")) {
+
+            sizeconvert = url.substring(0, url.indexOf(substr))+substr;
+            sizeconvert = sizeconvert+url.lastIndexOf(substr);
+
+            //urldownlad = url.substring(url.lastIndexOf("download/") + 4);
+        }
+
+
+        return sizeconvert;
     }
 
 

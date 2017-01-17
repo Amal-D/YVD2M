@@ -45,5 +45,7 @@ public class ConnectivityReceiver extends BroadcastReceiver {
 
     public interface ConnectivityReceiverListener {
         void onNetworkConnectionChanged(boolean isConnected);
+
+        void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults);
     }
 }
