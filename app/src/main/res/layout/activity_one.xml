@@ -149,7 +149,7 @@
         android:background="#efeded"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <Util.WrapViewPager
+        <me.amald.youtubedownloader.Util.WrapViewPager
             android:id="@+id/vp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

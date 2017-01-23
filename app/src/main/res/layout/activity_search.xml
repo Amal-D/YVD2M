@@ -113,7 +113,7 @@
                 android:layout_height="match_parent">
 
 
-                <Util.custom.NavigationTabStrip
+                <me.amald.youtubedownloader.Util.custom.NavigationTabStrip
                     android:id="@+id/strip_head"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -142,7 +142,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <Util.WrapViewPager
+        <me.amald.youtubedownloader.Util.WrapViewPager
             android:id="@+id/vp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

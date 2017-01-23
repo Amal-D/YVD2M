@@ -7,13 +7,13 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".MyApplication"
+        android:name=".Activities.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppThemeTwo">
-        <activity android:name=".ActivityOne">
+        <activity android:name=".Activities.ActivityOne">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,12 +22,12 @@
         </activity>
 
 
+        <activity android:name=".Activities.ActivityPlayer"/>
 
-
-        <service android:name="communication.DownloadService"/>
+        <service android:name=".communication.DownloadService"/>
 
         <receiver
-            android:name="communication.ConnectivityReceiver"
+            android:name=".communication.ConnectivityReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
