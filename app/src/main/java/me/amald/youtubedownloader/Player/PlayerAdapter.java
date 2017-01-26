@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import me.amald.youtubedownloader.Activities.ActivityPlayer;
+import me.amald.youtubedownloader.Fragments.FragmentList;
 import me.amald.youtubedownloader.R;
 
 /**
@@ -68,17 +69,11 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.MyViewHold
 
                 String currentFile = sOng.getData();
 
-                ActivityPlayer.startPlay(currentFile);
+                FragmentList.startPlay(currentFile);
 
 
             }
         });
-
-
-
-
-
-
 
     }
 
