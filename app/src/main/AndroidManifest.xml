@@ -23,6 +23,8 @@
 
 
         <activity android:name=".Activities.ActivityPlayer"/>
+        <activity android:name=".Activities.ActivityPlayerNew"
+            android:theme="@style/AppThemeTwo"/>
 
         <service android:name=".communication.DownloadService"/>
 

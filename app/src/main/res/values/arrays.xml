@@ -4,4 +4,11 @@
         <item>Search</item>
         <item>Downloaded</item>
     </string-array>
+
+    <string-array name="titlestwo">
+        <item>Playing</item>
+        <item>List</item>
+    </string-array>
+
+
 </resources>

@@ -261,7 +261,7 @@ public class NavigationTabStrip extends View implements ViewPager.OnPageChangeLi
     }
 
     public void setTitles(final String... titles) {
-        for (int i = 0; i < titles.length; i++) titles[i] = titles[i].toUpperCase();
+        for (int i = 0; i < titles.length; i++) titles[i] = titles[i];
         mTitles = titles;
         requestLayout();
     }
@@ -737,7 +737,9 @@ public class NavigationTabStrip extends View implements ViewPager.OnPageChangeLi
         if (state == ViewPager.SCROLL_STATE_IDLE) {
 
 
-            ((WrapViewPager)mViewPager).reMeasureCurrentPage(mIndex);
+          //  if(getContext() instanceof )
+
+          //  ((WrapViewPager)mViewPager).reMeasureCurrentPage(mIndex);
 
 
             if (mOnPageChangeListener != null) mOnPageChangeListener.onPageSelected(mIndex);

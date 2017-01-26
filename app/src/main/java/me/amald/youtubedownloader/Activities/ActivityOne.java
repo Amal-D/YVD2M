@@ -54,8 +54,6 @@ public class ActivityOne extends AppCompatActivity implements View.OnClickListen
     private EditText search_edt;
     private ProgressDialog pDialog;
     HashMap<String, String> musicDetails = new HashMap<>();
-    String splitdomain = "";
-    String splitdomainUrl = "";
     public String urltwo = "";
     public String urlFinal = "";
     public String urlFinalTwo = "";
@@ -156,7 +154,7 @@ public class ActivityOne extends AppCompatActivity implements View.OnClickListen
 
             case R.id.play_test:
 
-                Intent player = new Intent(ActivityOne.this,ActivityPlayer.class);
+                Intent player = new Intent(ActivityOne.this,ActivityPlayerNew.class);
                 startActivity(player);
 
                 break;
