@@ -26,7 +26,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.MyViewHold
     private List<SOng> songListNew;
     private Cursor cursor;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
         public TextView title, surname;
         public CardView song;
@@ -59,31 +59,33 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.MyViewHold
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
 
+        final SOng sOng = songList.get(position);
+        holder.title.setText(sOng.getName());
+        holder.surname.setText(sOng.getSurname());
 
-            final SOng sOng = songList.get(position);
-            holder.title.setText(sOng.getName());
-            holder.surname.setText(sOng.getSurname());
-
-            holder.song.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-
-                    String currentFile = sOng.getData();
-
-              FragmentList.startPlay(currentFile);
-              FragmentList.updateBottomControll(sOng.getName());
+        holder.song.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
 
+                String currentFile = sOng.getData();
+                try {
+
+                    FragmentList.stopPlay();
+
+
+                    FragmentList.startPlay(currentFile);
+                    FragmentList.updateBottomControll(sOng.getName());
+
+                } catch (Exception e) {
                 }
-            });
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-
-
 
 
         return songList.size();

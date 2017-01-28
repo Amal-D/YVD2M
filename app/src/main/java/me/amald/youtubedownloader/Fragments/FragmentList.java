@@ -22,6 +22,7 @@ import java.util.List;
 import me.amald.youtubedownloader.Player.PlayerAdapter;
 import me.amald.youtubedownloader.Player.SOng;
 import me.amald.youtubedownloader.R;
+import me.amald.youtubedownloader.Util.MLogger;
 
 /**
  * Created by amald on 26/1/17.
@@ -35,12 +36,14 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
 
     private static final int UPDATE_FREQUENCY = 500;
-    private static MediaPlayer player = null;
-    private static boolean isStarted = true;
+    private static MediaPlayer player = new MediaPlayer();
+    private static boolean isStarted = false;
+    private static boolean is_back = false;
 
 
     private static TextView title_c;
     private static ImageView play_c;
+    private static String cutent_track;
 
     @Nullable
     @Override
@@ -50,6 +53,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         title_c = (TextView) v.findViewById(R.id.play_c_titile);
         play_c = (ImageView) v.findViewById(R.id.play_c);
+        play_c.setOnClickListener(this);
 
         songList = new ArrayList<>();
 
@@ -65,7 +69,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
     private void preparesong() {
 
-        player = new MediaPlayer();
+        //  player = new MediaPlayer();
 
         player.setOnCompletionListener(onCompletion);
         player.setOnErrorListener(onError);
@@ -114,8 +118,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
     }
 
 
-
-    public static void updateBottomControll(String title){
+    public static void updateBottomControll(String title) {
 
         title_c.setText(title);
         play_c.setImageResource(R.drawable.pause);
@@ -125,13 +128,22 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
 
     public static void startPlay(String file) {
+
         Log.i("Selected: ", file);
+
+
+        cutent_track = file;
+
+        play_c.setImageResource(R.drawable.pause);
+
 
 //        selelctedFile.setText(file);
 //        seekbar.setProgress(0);
 
+
         player.stop();
         player.reset();
+
 
         try {
             player.setDataSource(file);
@@ -146,14 +158,56 @@ public class FragmentList extends Fragment implements View.OnClickListener {
         }
 
         //seekbar.setMax(player.getDuration());
-       // playButton.setImageResource(android.R.drawable.ic_media_pause);
+        // playButton.setImageResource(android.R.drawable.ic_media_pause);
 
         //updatePosition();
 
         isStarted = true;
     }
 
-    private void stopPlay() {
+    public static boolean isplay() {
+
+        Boolean state = false;
+
+        if (player.isPlaying()) {
+
+            state = true;
+
+        }
+
+        return state;
+
+    }
+
+    public static void isplaytwo() {
+
+        if (player.isPlaying()) {
+
+            player.stop();
+            player.reset();
+
+            MLogger.debug("playinggg", "yesss");
+
+        }
+
+    }
+
+
+    public static void releasePlayer() {
+
+
+        player.release();
+
+        player = new MediaPlayer();
+
+
+    }
+
+    public static void stopPlay() {
+
+
+        play_c.setImageResource(R.drawable.play);
+
         player.stop();
         player.reset();
 //        playButton.setImageResource(android.R.drawable.ic_media_play);
@@ -162,7 +216,6 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
         isStarted = false;
     }
-
 
 
     private MediaPlayer.OnCompletionListener onCompletion = new MediaPlayer.OnCompletionListener() {
@@ -183,9 +236,50 @@ public class FragmentList extends Fragment implements View.OnClickListener {
     };
 
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        //player.start();
+
+
+        MLogger.debug("resume", "yess");
+
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        // player.pause();
+
+        MLogger.debug("resumexx", "yess");
+        is_back = true;
+
+
+    }
 
     @Override
     public void onClick(View v) {
+
+        switch (v.getId()) {
+
+            case R.id.play_c:
+
+                if (isStarted) {
+
+                    stopPlay();
+
+                } else {
+
+                    startPlay(cutent_track);
+                }
+
+
+                break;
+
+        }
 
     }
 }
