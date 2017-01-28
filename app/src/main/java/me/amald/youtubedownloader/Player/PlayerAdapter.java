@@ -72,6 +72,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.MyViewHold
                     String currentFile = sOng.getData();
 
               FragmentList.startPlay(currentFile);
+              FragmentList.updateBottomControll(sOng.getName());
 
 
                 }

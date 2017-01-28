@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,12 +39,17 @@ public class FragmentList extends Fragment implements View.OnClickListener {
     private static boolean isStarted = true;
 
 
+    private static TextView title_c;
+    private static ImageView play_c;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_list, container, false);
 
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
+        title_c = (TextView) v.findViewById(R.id.play_c_titile);
+        play_c = (ImageView) v.findViewById(R.id.play_c);
 
         songList = new ArrayList<>();
 
@@ -104,6 +111,16 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
 
         }
+    }
+
+
+
+    public static void updateBottomControll(String title){
+
+        title_c.setText(title);
+        play_c.setImageResource(R.drawable.pause);
+
+
     }
 
 
