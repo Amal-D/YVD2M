@@ -128,7 +128,7 @@ public class ActivityPlayer extends AppCompatActivity {
                 String data = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
 
 
-                    SOng a = new SOng(name, title, data);
+                    SOng a = new SOng(name.replaceAll(".mp3",""), title, data);
                     songList.add(a);
 
                     adapter = new PlayerAdapter(this, songList);

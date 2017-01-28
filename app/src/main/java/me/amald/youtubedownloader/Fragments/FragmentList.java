@@ -101,7 +101,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
                 if (name != null) {
 
-                    SOng a = new SOng(name, title, data);
+                    SOng a = new SOng(name.replaceAll(".mp3",""), title, data);
                     songList.add(a);
 
                     adapter = new PlayerAdapter(getActivity(), songList);
