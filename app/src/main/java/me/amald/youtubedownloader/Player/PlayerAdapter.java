@@ -59,7 +59,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.MyViewHold
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
 
-       // if(position!=0) {
+
             final SOng sOng = songList.get(position);
             holder.title.setText(sOng.getName());
             holder.surname.setText(sOng.getSurname());
@@ -71,12 +71,11 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.MyViewHold
 
                     String currentFile = sOng.getData();
 
-                    FragmentList.startPlay(currentFile);
+              FragmentList.startPlay(currentFile);
 
 
                 }
             });
-        //}
 
     }
 
