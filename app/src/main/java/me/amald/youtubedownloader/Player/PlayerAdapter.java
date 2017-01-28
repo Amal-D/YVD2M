@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import me.amald.youtubedownloader.Fragments.FragmentList;
+import me.amald.youtubedownloader.Fragments.FragmentPlayer;
 import me.amald.youtubedownloader.R;
 import me.amald.youtubedownloader.Util.MLogger;
 
@@ -76,6 +77,8 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.MyViewHold
 
                     FragmentList.startPlay(currentFile);
                     FragmentList.updateBottomControll(sOng.getName());
+                    FragmentPlayer.updateControll();
+                    FragmentPlayer.updateBottomControll(sOng.getName(),sOng.getSurname());
 
                 } catch (Exception e) {
                 }

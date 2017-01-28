@@ -66,6 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:text="Slide to slide"
+                    android:maxLength="15"
                     android:textColor="#000000"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -76,6 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_one"
                     android:layout_centerHorizontal="true"
+                    android:maxLength="15"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="10dp"
                     android:text="Ariana Grande"

@@ -63,6 +63,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
         recyclerView.setAdapter(adapter);
 
         preparesong();
+        updateControll();
 
         return v;
     }
@@ -118,7 +119,38 @@ public class FragmentList extends Fragment implements View.OnClickListener {
     }
 
 
+    private void updateControll() {
+
+
+        if(player.isPlaying()){
+
+            play_c.setImageResource(R.drawable.pause);
+            title_c.setText(cutent_track);
+
+
+        }
+
+        if(FragmentList.isplay()){
+
+            play_c.setImageResource(R.drawable.pause);
+            title_c.setText(cutent_track);
+
+        }else{
+
+            play_c.setImageResource(R.drawable.play);
+            if(cutent_track!=null){
+                title_c.setText(cutent_track);
+
+            }
+
+        }
+
+    }
+
+
     public static void updateBottomControll(String title) {
+
+        cutent_track = title;
 
         title_c.setText(title);
         play_c.setImageResource(R.drawable.pause);
@@ -132,7 +164,8 @@ public class FragmentList extends Fragment implements View.OnClickListener {
         Log.i("Selected: ", file);
 
 
-        cutent_track = file;
+
+
 
         play_c.setImageResource(R.drawable.pause);
 
@@ -270,10 +303,12 @@ public class FragmentList extends Fragment implements View.OnClickListener {
                 if (isStarted) {
 
                     stopPlay();
+                    FragmentPlayer.updateControll();
 
                 } else {
 
                     startPlay(cutent_track);
+                    FragmentPlayer.updateControll();
                 }
 
 
