@@ -127,14 +127,17 @@ public class ActivityPlayer extends AppCompatActivity {
 
                 String data = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
 
-                SOng a = new SOng(name, title,data);
-                songList.add(a);
 
-                adapter = new PlayerAdapter(this, songList);
+                    SOng a = new SOng(name, title, data);
+                    songList.add(a);
 
-                recyclerView.setAdapter(adapter);
+                    adapter = new PlayerAdapter(this, songList);
 
-                adapter.notifyDataSetChanged();
+                    recyclerView.setAdapter(adapter);
+
+                    adapter.notifyDataSetChanged();
+
+
 
                 // mediaAdapter = new PlayAudioExample.MediaCursorAdapter(this, R.layout.listitem, cursor);
 

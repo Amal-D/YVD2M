@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import me.amald.youtubedownloader.Activities.ActivityPlayer;
 import me.amald.youtubedownloader.Fragments.FragmentList;
 import me.amald.youtubedownloader.R;
+import me.amald.youtubedownloader.Util.MLogger;
 
 /**
  * Created by amald on 20/1/17.
@@ -23,6 +23,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.MyViewHold
 
     private Context mContext;
     private List<SOng> songList;
+    private List<SOng> songListNew;
     private Cursor cursor;
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
@@ -49,7 +50,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.MyViewHold
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.song_list_player, parent, false);
+                .inflate(R.layout.song_list_player_new, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -58,27 +59,33 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.MyViewHold
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
 
-        final SOng sOng = songList.get(position);
-        holder.title.setText(sOng.getName());
-        holder.surname.setText(sOng.getSurname());
+       // if(position!=0) {
+            final SOng sOng = songList.get(position);
+            holder.title.setText(sOng.getName());
+            holder.surname.setText(sOng.getSurname());
 
-        holder.song.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                String currentFile = sOng.getData();
-
-                FragmentList.startPlay(currentFile);
+            holder.song.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
 
-            }
-        });
+                    String currentFile = sOng.getData();
+
+                    FragmentList.startPlay(currentFile);
+
+
+                }
+            });
+        //}
 
     }
 
     @Override
     public int getItemCount() {
+
+
+
+
         return songList.size();
 
     }

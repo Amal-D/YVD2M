@@ -87,16 +87,19 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
                 String data = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
 
-                SOng a = new SOng(name, title, data);
-                songList.add(a);
+                if (name != null) {
 
-                adapter = new PlayerAdapter(getActivity(), songList);
+                    SOng a = new SOng(name, title, data);
+                    songList.add(a);
 
-                recyclerView.setAdapter(adapter);
+                    adapter = new PlayerAdapter(getActivity(), songList);
 
-                adapter.notifyDataSetChanged();
+                    recyclerView.setAdapter(adapter);
+
+                    adapter.notifyDataSetChanged();
 
 
+                }
             }
 
 

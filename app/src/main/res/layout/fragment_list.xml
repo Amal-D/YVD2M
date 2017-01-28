@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="3"
+    android:orientation="vertical">
 
-    <FrameLayout
+
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="0.5">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
@@ -16,5 +23,19 @@
             android:scrollbars="vertical" />
 
 
-    </FrameLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2.5">
+
+
+    </LinearLayout>
+
+
+
 </LinearLayout>
