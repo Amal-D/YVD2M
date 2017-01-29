@@ -24,7 +24,7 @@ import me.amald.youtubedownloader.Util.UtilitiesF;
  * Created by amald on 26/1/17.
  */
 
-public class FragmentPlayer extends Fragment implements View.OnClickListener{
+public class FragmentPlayer extends Fragment implements View.OnClickListener {
 
     private static ImageView player_c;
     private static MediaPlayer player = null;
@@ -63,10 +63,15 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener{
         seekbar.setOnSeekBarChangeListener(seekBarChanged);
 
         try {
-            if (playerNew.isPlaying()) {
+            // if (playerNew.isPlaying()) {
 
-                updateControll();
-            }
+            updateControll();
+            updatePosition();
+
+            seekbar.setProgress(0);
+            seekbar.setMax(playerNew.getDuration());
+
+            // }
         } catch (Exception e) {
         }
 
@@ -78,9 +83,14 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener{
     public static void updateControll() {
 
 
-//        seekbar.setMax(player.getDuration());
+        try {
 
-        if (player.isPlaying()) {
+            end_time.setText(utilities.getTimeString(playerNew.getDuration()));
+
+        } catch (Exception e) {
+        }
+
+        if (playerNew.isPlaying()) {
 
             player_c.setImageResource(R.drawable.pause);
             song_one.setText(cutent_track);
@@ -90,8 +100,8 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener{
 
             end_time.setText(utilities.getTimeString(runtime));
 
-            seekbar.setProgress(0);
-            seekbar.setMax(runtime);
+//            seekbar.setProgress(0);
+//            seekbar.setMax(runtime);
 
 
         }
@@ -106,8 +116,8 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener{
 
             end_time.setText(utilities.getTimeString(runtime));
 
-            seekbar.setProgress(0);
-            seekbar.setMax(runtime);
+//            seekbar.setProgress(0);
+//            seekbar.setMax(runtime);
 
 
         } else {
@@ -163,6 +173,17 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener{
 
     public static void updatePosition() {
 
+        if (playerNew.isPlaying()) {
+
+
+            player_c.setImageResource(R.drawable.pause);
+
+        } else {
+
+            player_c.setImageResource(R.drawable.play);
+
+        }
+
         handler.removeCallbacks(updatePositionRunnable);
 
         seekbar.setProgress(playerNew.getCurrentPosition());
@@ -196,15 +217,39 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener{
     };
 
 
+    public static void pausePlay() {
+
+
+        if (playerNew.isPlaying()) {
+
+            player_c.setImageResource(R.drawable.play);
+
+            playerNew.pause();
+
+
+        } else {
+
+
+            playerNew.start();
+            player_c.setImageResource(R.drawable.pause);
+
+
+        }
+
+
+    }
+
+
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()){
+        switch (v.getId()) {
 
 
             case R.id.play:
 
-                FragmentList.pausePlay();
+                pausePlay();
+                FragmentList.updateControll();
 
 
                 break;

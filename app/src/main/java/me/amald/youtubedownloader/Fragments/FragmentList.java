@@ -137,7 +137,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
     }
 
 
-    private void updateControll() {
+    public static void updateControll() {
 
 
         if (player.isPlaying()) {
@@ -288,6 +288,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
         }
 
 
+
     }
 
 
@@ -341,6 +342,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
             case R.id.play_c:
 
                 pausePlay();
+
 
 //                if (isStarted) {
 //
