@@ -24,7 +24,7 @@ import me.amald.youtubedownloader.Util.UtilitiesF;
  * Created by amald on 26/1/17.
  */
 
-public class FragmentPlayer extends Fragment {
+public class FragmentPlayer extends Fragment implements View.OnClickListener{
 
     private static ImageView player_c;
     private static MediaPlayer player = null;
@@ -47,6 +47,8 @@ public class FragmentPlayer extends Fragment {
         player = new MediaPlayer();
 
         player_c = (ImageView) v.findViewById(R.id.play);
+
+        player_c.setOnClickListener(this);
 
         song_one = (TextView) v.findViewById(R.id.text_one);
 
@@ -194,4 +196,21 @@ public class FragmentPlayer extends Fragment {
     };
 
 
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+
+
+            case R.id.play:
+
+                FragmentList.pausePlay();
+
+
+                break;
+
+
+        }
+
+    }
 }

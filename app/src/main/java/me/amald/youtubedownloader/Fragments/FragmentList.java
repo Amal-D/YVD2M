@@ -91,8 +91,8 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
                 try {
 
-                    if(cursor.getString(
-                            cursor.getColumnIndex(MediaStore.MediaColumns.DISPLAY_NAME))!=null) {
+                    if (cursor.getString(
+                            cursor.getColumnIndex(MediaStore.MediaColumns.DISPLAY_NAME)) != null) {
 
                         int albumId = cursor.getInt(0);
 
@@ -118,17 +118,16 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
 
                         }
-                    }else {
+                    } else {
 
                         continue;
                     }
 
-                }catch (Exception e){
+                } catch (Exception e) {
 
-                    MLogger.debug("exception",e.toString());
+                    MLogger.debug("exception", e.toString());
 
                 }
-
 
 
             }
@@ -141,7 +140,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
     private void updateControll() {
 
 
-        if(player.isPlaying()){
+        if (player.isPlaying()) {
 
             play_c.setImageResource(R.drawable.pause);
             title_c.setText(cutent_track);
@@ -149,15 +148,15 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
         }
 
-        if(FragmentList.isplay()){
+        if (FragmentList.isplay()) {
 
             play_c.setImageResource(R.drawable.pause);
             title_c.setText(cutent_track);
 
-        }else{
+        } else {
 
             play_c.setImageResource(R.drawable.play);
-            if(cutent_track!=null){
+            if (cutent_track != null) {
                 title_c.setText(cutent_track);
 
             }
@@ -183,11 +182,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
         Log.i("Selected: ", file);
 
 
-
-
-
         play_c.setImageResource(R.drawable.pause);
-
 
 
 //        selelctedFile.setText(file);
@@ -211,7 +206,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
         }
 
 
-        FragmentPlayer.seekBarUpdate(player.getDuration(),player);
+        FragmentPlayer.seekBarUpdate(player.getDuration(), player);
 
         //seekbar.setMax(player.getDuration());
         // playButton.setImageResource(android.R.drawable.ic_media_pause);
@@ -266,11 +261,33 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
         player.stop();
         player.reset();
-//        playButton.setImageResource(android.R.drawable.ic_media_play);
-//        handler.removeCallbacks(updatePositionRunnable);
-//        seekbar.setProgress(0);
-
         isStarted = false;
+    }
+
+
+    public static void pausePlay() {
+
+
+        if (isStarted) {
+
+            play_c.setImageResource(R.drawable.play);
+
+            player.pause();
+
+            isStarted = false;
+
+        } else {
+
+
+            player.start();
+            play_c.setImageResource(R.drawable.pause);
+
+            isStarted = true;
+
+
+        }
+
+
     }
 
 
@@ -323,16 +340,18 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
             case R.id.play_c:
 
-                if (isStarted) {
+                pausePlay();
 
-                    stopPlay();
-                    FragmentPlayer.updateControll();
-
-                } else {
-
-                    startPlay(cutent_track);
-                    FragmentPlayer.updateControll();
-                }
+//                if (isStarted) {
+//
+//                    pausePlay();
+//                    FragmentPlayer.updateControll();
+//
+//                } else {
+//
+//                    startPlay(cutent_track);
+//                    FragmentPlayer.updateControll();
+//                }
 
 
                 break;
