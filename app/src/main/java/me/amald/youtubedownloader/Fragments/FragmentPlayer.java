@@ -14,6 +14,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import me.amald.youtubedownloader.R;
+import me.amald.youtubedownloader.Util.MLogger;
 
 /**
  * Created by amald on 26/1/17.
@@ -152,9 +153,9 @@ public class FragmentPlayer extends Fragment {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             if (isMoveingSeekBar) {
-                player.seekTo(progress);
+                playerNew.seekTo(progress);
 
-                Log.i("OnSeekBarChangeListener", "onProgressChanged");
+                MLogger.debug("OnSeekBarChangeListener", "onProgressChanged");
             }
         }
     };
