@@ -170,6 +170,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
         play_c.setImageResource(R.drawable.pause);
 
 
+
 //        selelctedFile.setText(file);
 //        seekbar.setProgress(0);
 
@@ -189,6 +190,9 @@ public class FragmentList extends Fragment implements View.OnClickListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        FragmentPlayer.seekBarUpdate(player.getDuration(),player);
 
         //seekbar.setMax(player.getDuration());
         // playButton.setImageResource(android.R.drawable.ic_media_pause);
