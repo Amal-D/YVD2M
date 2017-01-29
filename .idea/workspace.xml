@@ -31,6 +31,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Fragments/FragmentPlayer.java" afterPath="$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Fragments/FragmentPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Util/UtilitiesF.java" afterPath="$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Util/UtilitiesF.java" />
     </list>
     <ignored path="YVD2M.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,14 +81,24 @@
       <file leaf-file-name="FragmentPlayer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Fragments/FragmentPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="124" column="44" selection-start-line="124" selection-start-column="44" selection-end-line="124" selection-end-column="44" />
+            <state relative-caret-position="248">
+              <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
               <folding>
-                <element signature="e#3866#3867#0" expanded="true" />
-                <element signature="e#3914#3915#0" expanded="true" />
-                <element signature="e#3993#3994#0" expanded="true" />
-                <element signature="e#4040#4041#0" expanded="true" />
+                <element signature="e#3926#3927#0" expanded="true" />
+                <element signature="e#3974#3975#0" expanded="true" />
+                <element signature="e#4053#4054#0" expanded="true" />
+                <element signature="e#4100#4101#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UtilitiesF.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Util/UtilitiesF.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1906,7 +1917,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/custom_search_bg_focused.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg_input_field.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/custom_seach_bg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/shadowtwo.xml" />
@@ -1956,6 +1966,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Activities/ActivityPlayer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Player/PlayerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Fragments/FragmentList.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Util/UtilitiesF.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Fragments/FragmentPlayer.java" />
       </list>
     </option>
@@ -2061,6 +2072,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YVD2M" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YVD2M" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="youtubedownloader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Util" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2577,7 +2622,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Fragments/FragmentPlayer.java</url>
-          <line>117</line>
+          <line>119</line>
           <properties class="me.amald.youtubedownloader.Fragments.FragmentPlayer" method="seekBarUpdate" />
           <option name="timeStamp" value="84" />
         </line-breakpoint>
@@ -2677,12 +2722,6 @@
           <properties />
           <option name="timeStamp" value="83" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Fragments/FragmentPlayer.java</url>
-          <line>119</line>
-          <properties />
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -2692,16 +2731,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/song_card.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/DataCache/DatabaseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -3063,8 +3092,8 @@
         <state relative-caret-position="375">
           <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
           <folding>
-            <element signature="e#602#603#0" expanded="true" />
-            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="false" />
+            <element signature="e#627#628#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3079,15 +3108,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Util/UtilitiesF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/me/amald/youtubedownloader/Fragments/FragmentPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="124" column="44" selection-start-line="124" selection-start-column="44" selection-end-line="124" selection-end-column="44" />
+        <state relative-caret-position="248">
+          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
           <folding>
-            <element signature="e#3866#3867#0" expanded="true" />
-            <element signature="e#3914#3915#0" expanded="true" />
-            <element signature="e#3993#3994#0" expanded="true" />
-            <element signature="e#4040#4041#0" expanded="true" />
+            <element signature="e#3926#3927#0" expanded="true" />
+            <element signature="e#3974#3975#0" expanded="true" />
+            <element signature="e#4053#4054#0" expanded="true" />
+            <element signature="e#4100#4101#0" expanded="true" />
           </folding>
         </state>
       </provider>

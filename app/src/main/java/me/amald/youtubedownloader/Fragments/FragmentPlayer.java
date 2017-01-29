@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 import me.amald.youtubedownloader.R;
 import me.amald.youtubedownloader.Util.MLogger;
+import me.amald.youtubedownloader.Util.UtilitiesF;
 
 /**
  * Created by amald on 26/1/17.
@@ -34,6 +35,7 @@ public class FragmentPlayer extends Fragment {
     private static SeekBar seekbar;
     private static final int UPDATE_FREQUENCY = 500;
     private boolean isMoveingSeekBar = false;
+    private static UtilitiesF utilities=new UtilitiesF();
 
 
 
@@ -117,12 +119,7 @@ public class FragmentPlayer extends Fragment {
 
     public static void seekBarUpdate(int duration, MediaPlayer player){
 
-        int minutes = (int) TimeUnit.MILLISECONDS
-                .toMinutes(duration);
-
-        int seconds ;
-        seconds = (duration%3600)/60;
-        end_time.setText(minutes+":"+seconds);
+        end_time.setText(utilities.getTimeString(duration));
 
         playerNew = player;
         seekbar.setProgress(0);
@@ -147,6 +144,8 @@ public class FragmentPlayer extends Fragment {
         handler.removeCallbacks(updatePositionRunnable);
 
         seekbar.setProgress(playerNew.getCurrentPosition());
+
+        start_time.setText(utilities.getTimeString(playerNew.getCurrentPosition()));
 
         handler.postDelayed(updatePositionRunnable, UPDATE_FREQUENCY);
 
