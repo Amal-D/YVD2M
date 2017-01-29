@@ -13,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+import java.util.concurrent.TimeUnit;
+
 import me.amald.youtubedownloader.R;
 import me.amald.youtubedownloader.Util.MLogger;
 
@@ -27,7 +30,7 @@ public class FragmentPlayer extends Fragment {
     private static MediaPlayer playerNew = null;
     private static String cutent_track="";
     private static String cutent_track_sur="";
-    private static TextView song_one,text_two;
+    private static TextView song_one,text_two,start_time,end_time;
     private static SeekBar seekbar;
     private static final int UPDATE_FREQUENCY = 500;
     private boolean isMoveingSeekBar = false;
@@ -44,6 +47,10 @@ public class FragmentPlayer extends Fragment {
         player_c = (ImageView) v.findViewById(R.id.play);
 
         song_one =(TextView) v.findViewById(R.id.text_one);
+
+        start_time = (TextView) v.findViewById(R.id.start_time);
+
+        end_time = (TextView) v.findViewById(R.id.end_time);
 
         text_two =(TextView) v.findViewById(R.id.text_two);
 
@@ -109,6 +116,13 @@ public class FragmentPlayer extends Fragment {
     }
 
     public static void seekBarUpdate(int duration, MediaPlayer player){
+
+        int minutes = (int) TimeUnit.MILLISECONDS
+                .toMinutes(duration);
+
+        int seconds ;
+        seconds = (duration%3600)/60;
+        end_time.setText(minutes+":"+seconds);
 
         playerNew = player;
         seekbar.setProgress(0);
