@@ -29,14 +29,14 @@ public class FragmentPlayer extends Fragment {
     private static ImageView player_c;
     private static MediaPlayer player = null;
     private static MediaPlayer playerNew = null;
-    private static String cutent_track="";
-    private static String cutent_track_sur="";
-    private static TextView song_one,text_two,start_time,end_time;
+    private static String cutent_track = "";
+    private static String cutent_track_sur = "";
+    private static TextView song_one, text_two, start_time, end_time;
     private static SeekBar seekbar;
     private static final int UPDATE_FREQUENCY = 500;
     private boolean isMoveingSeekBar = false;
-    private static UtilitiesF utilities=new UtilitiesF();
-
+    private static UtilitiesF utilities = new UtilitiesF();
+    private static int runtime;
 
 
     @Nullable
@@ -48,17 +48,25 @@ public class FragmentPlayer extends Fragment {
 
         player_c = (ImageView) v.findViewById(R.id.play);
 
-        song_one =(TextView) v.findViewById(R.id.text_one);
+        song_one = (TextView) v.findViewById(R.id.text_one);
 
         start_time = (TextView) v.findViewById(R.id.start_time);
 
         end_time = (TextView) v.findViewById(R.id.end_time);
 
-        text_two =(TextView) v.findViewById(R.id.text_two);
+        text_two = (TextView) v.findViewById(R.id.text_two);
 
         seekbar = (SeekBar) v.findViewById(R.id.seek_bar);
 
         seekbar.setOnSeekBarChangeListener(seekBarChanged);
+
+        try {
+            if (playerNew.isPlaying()) {
+
+                updateControll();
+            }
+        } catch (Exception e) {
+        }
 
 
         return v;
@@ -70,17 +78,23 @@ public class FragmentPlayer extends Fragment {
 
 //        seekbar.setMax(player.getDuration());
 
-        if(player.isPlaying()){
+        if (player.isPlaying()) {
 
             player_c.setImageResource(R.drawable.pause);
             song_one.setText(cutent_track);
             text_two.setText(cutent_track_sur);
             updatePosition();
+
+
+            end_time.setText(utilities.getTimeString(runtime));
+
+            seekbar.setProgress(0);
+            seekbar.setMax(runtime);
 
 
         }
 
-        if(FragmentList.isplay()){
+        if (FragmentList.isplay()) {
 
             player_c.setImageResource(R.drawable.pause);
             song_one.setText(cutent_track);
@@ -88,13 +102,18 @@ public class FragmentPlayer extends Fragment {
             updatePosition();
 
 
+            end_time.setText(utilities.getTimeString(runtime));
 
-        }else{
+            seekbar.setProgress(0);
+            seekbar.setMax(runtime);
+
+
+        } else {
 
             player_c.setImageResource(R.drawable.play);
 
 
-            if(cutent_track!=null){
+            if (cutent_track != null) {
                 song_one.setText(cutent_track);
                 text_two.setText(cutent_track_sur);
 
@@ -105,7 +124,7 @@ public class FragmentPlayer extends Fragment {
 
     }
 
-    public static void updateBottomControll(String title,String subtitle) {
+    public static void updateBottomControll(String title, String subtitle) {
 
         cutent_track = title;
 
@@ -117,7 +136,9 @@ public class FragmentPlayer extends Fragment {
 
     }
 
-    public static void seekBarUpdate(int duration, MediaPlayer player){
+    public static void seekBarUpdate(int duration, MediaPlayer player) {
+
+        runtime = duration;
 
         end_time.setText(utilities.getTimeString(duration));
 
@@ -136,7 +157,6 @@ public class FragmentPlayer extends Fragment {
             updatePosition();
         }
     };
-
 
 
     public static void updatePosition() {

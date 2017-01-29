@@ -89,29 +89,48 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
             while (cursor.moveToNext()) {
 
+                try {
 
-                String name = cursor.getString(
-                        cursor.getColumnIndex(MediaStore.MediaColumns.DISPLAY_NAME));
+                    if(cursor.getString(
+                            cursor.getColumnIndex(MediaStore.MediaColumns.DISPLAY_NAME))!=null) {
 
-                String title = cursor.getString(
-                        cursor.getColumnIndex(MediaStore.MediaColumns.TITLE));
+                        int albumId = cursor.getInt(0);
+
+                        String name = cursor.getString(
+                                cursor.getColumnIndex(MediaStore.MediaColumns.DISPLAY_NAME));
+
+                        String title = cursor.getString(
+                                cursor.getColumnIndex(MediaStore.MediaColumns.TITLE));
 
 
-                String data = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
+                        String data = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
 
-                if (name != null) {
+                        if (name != null) {
 
-                    SOng a = new SOng(name.replaceAll(".mp3",""), title, data);
-                    songList.add(a);
+                            SOng a = new SOng(name.replaceAll(".mp3", ""), title, data);
+                            songList.add(a);
 
-                    adapter = new PlayerAdapter(getActivity(), songList);
+                            adapter = new PlayerAdapter(getActivity(), songList);
 
-                    recyclerView.setAdapter(adapter);
+                            recyclerView.setAdapter(adapter);
 
-                    adapter.notifyDataSetChanged();
+                            adapter.notifyDataSetChanged();
 
+
+                        }
+                    }else {
+
+                        continue;
+                    }
+
+                }catch (Exception e){
+
+                    MLogger.debug("exception",e.toString());
 
                 }
+
+
+
             }
 
 
