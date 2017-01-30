@@ -284,6 +284,12 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
 
                 break;
 
+            case R.id.playPrevious:
+
+             //   playPreviousSong();
+
+                break;
+
         }
 
     }
@@ -296,12 +302,34 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
 
                 if(start<=alltracks.size()) {
 
-                    if (alltracks.get(start) != cutent_trackData) {
+                    int pos = -1;
 
-                        FragmentList.startPlay(alltracks.get(start));
-                        start++;
+                    String location="";
 
+                    if(cutent_track.contains(".mp3")){
+
+                        location = cutent_track;
+
+                    }else {
+
+                        location = "/storage/emulated/0/Music/YVD2M/" + cutent_track + ".mp3";
                     }
+
+                    pos = alltracks.indexOf(location);
+
+                    MLogger.debug("positionsisOFrack",cutent_track+"");
+                    MLogger.debug("positionsis",pos+"");
+                   // if (alltracks.get(start) != cutent_trackData) {
+
+                        FragmentList.startPlay(alltracks.get(pos+1));
+
+                    cutent_track = alltracks.get(pos+1);
+
+                        //start++;
+
+                   // }
+
+
                 }
 
 
@@ -309,6 +337,31 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
         }catch (Exception e){}
 
     }
+
+
+    private void playPreviousSong() {
+
+
+        try {
+            if (alltracks != null && alltracks.size() > 0) {
+
+               // if(start<=alltracks.size()) {
+
+                    if (alltracks.get(start-1) != cutent_trackData) {
+
+                        FragmentList.startPlay(alltracks.get(start-1));
+                        start--;
+
+                    }
+                //}
+
+
+            }
+        }catch (Exception e){}
+
+    }
+
+
 
     private void playControll() {
 
