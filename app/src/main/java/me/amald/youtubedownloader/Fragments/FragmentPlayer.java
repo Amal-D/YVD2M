@@ -37,6 +37,7 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
     private boolean isMoveingSeekBar = false;
     private static UtilitiesF utilities = new UtilitiesF();
     private static int runtime;
+    private static boolean pause_t = false;
 
 
     @Nullable
@@ -248,13 +249,35 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
 
             case R.id.play:
 
-                pausePlay();
-                FragmentList.updateControll();
+
+                playControll();
 
 
                 break;
 
 
+        }
+
+    }
+
+    private void playControll() {
+
+        try {
+            if (pause_t) {
+                pausePlay();
+                FragmentList.updateControll();
+            }
+        } catch (Exception e) {
+        }
+    }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        if (playerNew.isPlaying()) {
+            pause_t = true;
         }
 
     }
