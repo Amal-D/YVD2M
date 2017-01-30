@@ -55,6 +55,7 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/prev_btm"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginRight="10dp"
@@ -70,6 +71,7 @@
 
 
             <ImageView
+                android:id="@+id/next_btm"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="10dp"

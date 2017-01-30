@@ -23,6 +23,7 @@ import me.amald.youtubedownloader.Player.PlayerAdapter;
 import me.amald.youtubedownloader.Player.SOng;
 import me.amald.youtubedownloader.R;
 import me.amald.youtubedownloader.Util.MLogger;
+import me.amald.youtubedownloader.Util.constants;
 
 /**
  * Created by amald on 26/1/17.
@@ -39,11 +40,13 @@ public class FragmentList extends Fragment implements View.OnClickListener {
     private static MediaPlayer player = new MediaPlayer();
     private static boolean isStarted = false;
     private static boolean is_back = false;
+    private static int start = 1;
 
 
     private static TextView title_c;
-    private static ImageView play_c;
+    private static ImageView play_c,next_btm,prev_btm;
     private static String cutent_track;
+    private static String cutent_trackData;
     private static ArrayList<String> allTracks = new ArrayList<>();
 
     @Nullable
@@ -54,7 +57,11 @@ public class FragmentList extends Fragment implements View.OnClickListener {
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         title_c = (TextView) v.findViewById(R.id.play_c_titile);
         play_c = (ImageView) v.findViewById(R.id.play_c);
+        next_btm = (ImageView) v.findViewById(R.id.next_btm);
+        prev_btm = (ImageView) v.findViewById(R.id.prev_btm);
         play_c.setOnClickListener(this);
+        next_btm.setOnClickListener(this);
+        prev_btm.setOnClickListener(this);
 
         songList = new ArrayList<>();
 
@@ -188,6 +195,8 @@ public class FragmentList extends Fragment implements View.OnClickListener {
     public static void startPlay(String file) {
 
         Log.i("Selected: ", file);
+
+        cutent_trackData = file;
 
 
         play_c.setImageResource(R.drawable.pause);
@@ -342,6 +351,102 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
     }
 
+
+    private void playNextSong() {
+
+
+        try {
+            if (allTracks != null && allTracks.size() > 0) {
+
+                if (start <= allTracks.size()) {
+
+                    int pos = -1;
+
+                    String location = "";
+
+                    if (cutent_trackData.contains(".mp3")) {
+
+                        location = cutent_trackData;
+
+                    } else {
+
+                        location = constants.location + cutent_trackData + constants.extension;
+                    }
+
+                    pos = allTracks.indexOf(location);
+
+                    MLogger.debug("positionsisOFrack", cutent_trackData + "");
+                    MLogger.debug("positionsis", pos + "");
+                    // if (alltracks.get(start) != cutent_trackData) {
+
+                    FragmentList.startPlay(allTracks.get(pos + 1));
+
+                    cutent_trackData = allTracks.get(pos + 1);
+
+                    //start++;
+
+                    // }
+
+
+                }
+
+
+            }
+        } catch (Exception e) {
+        }
+
+    }
+
+
+    private void playPreviousSong() {
+
+
+        try {
+            if (allTracks != null && allTracks.size() > 0) {
+
+
+                int pos = -1;
+
+                String location = "";
+
+                if (cutent_trackData.contains(".mp3")) {
+
+                    location = cutent_trackData;
+
+                } else {
+
+                    location = constants.location + cutent_trackData + constants.extension;
+                }
+
+                pos = allTracks.indexOf(location);
+
+                MLogger.debug("positionsisOFrack", cutent_trackData + "");
+                MLogger.debug("positionsis", pos + "");
+                // if (alltracks.get(start) != cutent_trackData) {
+
+                FragmentList.startPlay(allTracks.get(pos - 1));
+
+                cutent_trackData = allTracks.get(pos - 1);
+
+
+                // if(start<=alltracks.size()) {
+//
+//                if (alltracks.get(start - 1) != cutent_trackData) {
+//
+//                    FragmentList.startPlay(alltracks.get(start - 1));
+//                    start--;
+//
+//                }
+                //}
+
+
+            }
+        } catch (Exception e) {
+        }
+
+    }
+
+
     @Override
     public void onClick(View v) {
 
@@ -351,18 +456,18 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
                 pausePlay();
 
+                break;
 
-//                if (isStarted) {
-//
-//                    pausePlay();
-//                    FragmentPlayer.updateControll();
-//
-//                } else {
-//
-//                    startPlay(cutent_track);
-//                    FragmentPlayer.updateControll();
-//                }
+            case R.id.prev_btm:
 
+
+                playPreviousSong();
+
+                break;
+
+            case R.id.next_btm:
+
+                playNextSong();
 
                 break;
 
