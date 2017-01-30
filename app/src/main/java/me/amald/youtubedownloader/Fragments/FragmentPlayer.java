@@ -35,6 +35,7 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
     private static String cutent_trackData = "";
     private static String cutent_track_sur = "";
     private static String cutent_track_puse = "";
+    private static String cutent_track_pusetwo = "";
     private static TextView song_one, text_two, start_time, end_time;
     private static SeekBar seekbar;
     private static final int UPDATE_FREQUENCY = 500;
@@ -79,8 +80,11 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
         try {
             // if (playerNew.isPlaying()) {
 
+            song_one.setText(utilities.getSongName(cutent_track_puse));
+
             updateControll();
             updatePosition();
+
 
             seekbar.setProgress(0);
             seekbar.setMax(playerNew.getDuration());
@@ -347,6 +351,7 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
     public static void setTitles(String name){
 
 
+        cutent_track_pusetwo = name;
         song_one.setText(utilities.getSongName(name));
 
     }
@@ -426,7 +431,8 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
         if (playerNew.isPlaying()) {
             pause_t = true;
 
-            cutent_track_puse = cutent_track;
+            cutent_track_puse = song_one.getText().toString();
+           // cutent_track_puse = cutent_track;
             FragmentList.setTitles(cutent_track);
 
         }
