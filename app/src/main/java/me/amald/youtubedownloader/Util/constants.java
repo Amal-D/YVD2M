@@ -9,5 +9,7 @@ public class constants {
 
     public static String moburl = ".be";
     public static String weburl = ".com";
+    public static String location="/storage/emulated/0/Music/YVD2M/";
+    public static String extension=".mp3";
 
 }

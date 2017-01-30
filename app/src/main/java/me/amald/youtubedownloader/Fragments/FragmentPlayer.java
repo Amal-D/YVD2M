@@ -20,6 +20,7 @@ import java.util.concurrent.TimeUnit;
 import me.amald.youtubedownloader.R;
 import me.amald.youtubedownloader.Util.MLogger;
 import me.amald.youtubedownloader.Util.UtilitiesF;
+import me.amald.youtubedownloader.Util.constants;
 
 /**
  * Created by amald on 26/1/17.
@@ -27,7 +28,7 @@ import me.amald.youtubedownloader.Util.UtilitiesF;
 
 public class FragmentPlayer extends Fragment implements View.OnClickListener {
 
-    private static ImageView player_c,next,previ;
+    private static ImageView player_c, next, previ;
     private static MediaPlayer player = null;
     private static MediaPlayer playerNew = null;
     private static String cutent_track = "";
@@ -36,8 +37,8 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
     private static TextView song_one, text_two, start_time, end_time;
     private static SeekBar seekbar;
     private static final int UPDATE_FREQUENCY = 500;
-    private static  int start = 1;
-    private static  int start_p = 1;
+    private static int start = 1;
+    private static int start_p = 1;
     private boolean isMoveingSeekBar = false;
     private static UtilitiesF utilities = new UtilitiesF();
     private static int runtime;
@@ -163,13 +164,11 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
     }
 
 
-
-    public static void playNextnPrevious(ArrayList<String> tracks){
+    public static void playNextnPrevious(ArrayList<String> tracks) {
 
         alltracks = tracks;
 
     }
-
 
 
     public static void seekBarUpdate(int duration, MediaPlayer player) {
@@ -286,7 +285,7 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
 
             case R.id.playPrevious:
 
-             //   playPreviousSong();
+                playPreviousSong();
 
                 break;
 
@@ -300,41 +299,42 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
         try {
             if (alltracks != null && alltracks.size() > 0) {
 
-                if(start<=alltracks.size()) {
+                if (start <= alltracks.size()) {
 
                     int pos = -1;
 
-                    String location="";
+                    String location = "";
 
-                    if(cutent_track.contains(".mp3")){
+                    if (cutent_track.contains(".mp3")) {
 
                         location = cutent_track;
 
-                    }else {
+                    } else {
 
-                        location = "/storage/emulated/0/Music/YVD2M/" + cutent_track + ".mp3";
+                        location = constants.location + cutent_track + constants.extension;
                     }
 
                     pos = alltracks.indexOf(location);
 
-                    MLogger.debug("positionsisOFrack",cutent_track+"");
-                    MLogger.debug("positionsis",pos+"");
-                   // if (alltracks.get(start) != cutent_trackData) {
+                    MLogger.debug("positionsisOFrack", cutent_track + "");
+                    MLogger.debug("positionsis", pos + "");
+                    // if (alltracks.get(start) != cutent_trackData) {
 
-                        FragmentList.startPlay(alltracks.get(pos+1));
+                    FragmentList.startPlay(alltracks.get(pos + 1));
 
-                    cutent_track = alltracks.get(pos+1);
+                    cutent_track = alltracks.get(pos + 1);
 
-                        //start++;
+                    //start++;
 
-                   // }
+                    // }
 
 
                 }
 
 
             }
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
 
     }
 
@@ -345,22 +345,47 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
         try {
             if (alltracks != null && alltracks.size() > 0) {
 
-               // if(start<=alltracks.size()) {
 
-                    if (alltracks.get(start-1) != cutent_trackData) {
+                int pos = -1;
 
-                        FragmentList.startPlay(alltracks.get(start-1));
-                        start--;
+                String location = "";
 
-                    }
+                if (cutent_track.contains(".mp3")) {
+
+                    location = cutent_track;
+
+                } else {
+
+                    location = constants.location + cutent_track + constants.extension;
+                }
+
+                pos = alltracks.indexOf(location);
+
+                MLogger.debug("positionsisOFrack", cutent_track + "");
+                MLogger.debug("positionsis", pos + "");
+                // if (alltracks.get(start) != cutent_trackData) {
+
+                FragmentList.startPlay(alltracks.get(pos - 1));
+
+                cutent_track = alltracks.get(pos - 1);
+
+
+                // if(start<=alltracks.size()) {
+//
+//                if (alltracks.get(start - 1) != cutent_trackData) {
+//
+//                    FragmentList.startPlay(alltracks.get(start - 1));
+//                    start--;
+//
+//                }
                 //}
 
 
             }
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
 
     }
-
 
 
     private void playControll() {
