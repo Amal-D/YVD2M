@@ -78,6 +78,7 @@
                     android:layout_below="@+id/text_one"
                     android:layout_centerHorizontal="true"
                     android:maxLength="15"
+                    android:visibility="invisible"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="10dp"
                     android:text="Ariana Grande"

@@ -19,6 +19,17 @@ public class UtilitiesF {
 
     }
 
+
+    public String getSongName(String name){
+
+        String splitone = name.replaceAll(constants.location,"");
+        String split = splitone.replaceAll(constants.extension,"");
+
+
+        return split;
+    }
+
+
     public String getTimeString(long millis) {
         StringBuffer buf = new StringBuffer();
 

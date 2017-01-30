@@ -23,6 +23,7 @@ import me.amald.youtubedownloader.Player.PlayerAdapter;
 import me.amald.youtubedownloader.Player.SOng;
 import me.amald.youtubedownloader.R;
 import me.amald.youtubedownloader.Util.MLogger;
+import me.amald.youtubedownloader.Util.UtilitiesF;
 import me.amald.youtubedownloader.Util.constants;
 
 /**
@@ -36,12 +37,14 @@ public class FragmentList extends Fragment implements View.OnClickListener {
     private List<SOng> songList;
 
 
+    private static UtilitiesF utilities = new UtilitiesF();
     private static final int UPDATE_FREQUENCY = 500;
     private static MediaPlayer player = new MediaPlayer();
     private static boolean isStarted = false;
     private static boolean is_back = false;
     private static int start = 1;
 
+    private static String cutent_track_puse = "";
 
     private static TextView title_c;
     private static ImageView play_c,next_btm,prev_btm;
@@ -158,7 +161,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
         if (player.isPlaying()) {
 
             play_c.setImageResource(R.drawable.pause);
-            title_c.setText(cutent_track);
+            title_c.setText(utilities.getSongName(cutent_track_puse));
 
 
         }
@@ -166,13 +169,13 @@ public class FragmentList extends Fragment implements View.OnClickListener {
         if (FragmentList.isplay()) {
 
             play_c.setImageResource(R.drawable.pause);
-            title_c.setText(cutent_track);
+            title_c.setText(utilities.getSongName(cutent_track_puse));
 
         } else {
 
             play_c.setImageResource(R.drawable.play);
             if (cutent_track != null) {
-                title_c.setText(cutent_track);
+                title_c.setText(utilities.getSongName(cutent_track_puse));
 
             }
 
@@ -348,6 +351,9 @@ public class FragmentList extends Fragment implements View.OnClickListener {
         MLogger.debug("resumexx", "yess");
         is_back = true;
 
+        cutent_track_puse = cutent_trackData;
+        FragmentPlayer.setTitles(cutent_trackData);
+
 
     }
 
@@ -383,6 +389,10 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
                     cutent_trackData = allTracks.get(pos + 1);
 
+                    title_c.setText(utilities.getSongName(cutent_trackData));
+
+                    FragmentPlayer.setTitles(cutent_trackData);
+
                     //start++;
 
                     // }
@@ -394,6 +404,13 @@ public class FragmentList extends Fragment implements View.OnClickListener {
             }
         } catch (Exception e) {
         }
+
+    }
+
+    public static void setTitles(String name){
+
+
+        title_c.setText(utilities.getSongName(name));
 
     }
 
@@ -427,6 +444,10 @@ public class FragmentList extends Fragment implements View.OnClickListener {
                 FragmentList.startPlay(allTracks.get(pos - 1));
 
                 cutent_trackData = allTracks.get(pos - 1);
+
+                title_c.setText(utilities.getSongName(cutent_trackData));
+
+                FragmentPlayer.setTitles(cutent_trackData);
 
 
                 // if(start<=alltracks.size()) {

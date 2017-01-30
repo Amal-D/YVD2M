@@ -34,6 +34,7 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
     private static String cutent_track = "";
     private static String cutent_trackData = "";
     private static String cutent_track_sur = "";
+    private static String cutent_track_puse = "";
     private static TextView song_one, text_two, start_time, end_time;
     private static SeekBar seekbar;
     private static final int UPDATE_FREQUENCY = 500;
@@ -106,7 +107,7 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
         if (playerNew.isPlaying()) {
 
             player_c.setImageResource(R.drawable.pause);
-            song_one.setText(cutent_track);
+            song_one.setText(utilities.getSongName(cutent_track_puse));
             text_two.setText(cutent_track_sur);
             updatePosition();
 
@@ -122,7 +123,7 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
         if (FragmentList.isplay()) {
 
             player_c.setImageResource(R.drawable.pause);
-            song_one.setText(cutent_track);
+            song_one.setText(utilities.getSongName(cutent_track_puse));
             text_two.setText(cutent_track_sur);
             updatePosition();
 
@@ -139,7 +140,7 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
 
 
             if (cutent_track != null) {
-                song_one.setText(cutent_track);
+                song_one.setText(utilities.getSongName(cutent_track_puse));
                 text_two.setText(cutent_track_sur);
 
 
@@ -324,6 +325,10 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
 
                     cutent_track = alltracks.get(pos + 1);
 
+                    song_one.setText(utilities.getSongName(cutent_track));
+
+                    FragmentList.setTitles(cutent_track);
+
                     //start++;
 
                     // }
@@ -335,6 +340,14 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
             }
         } catch (Exception e) {
         }
+
+    }
+
+
+    public static void setTitles(String name){
+
+
+        song_one.setText(utilities.getSongName(name));
 
     }
 
@@ -368,6 +381,12 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
                 FragmentList.startPlay(alltracks.get(pos - 1));
 
                 cutent_track = alltracks.get(pos - 1);
+
+                song_one.setText(utilities.getSongName(cutent_track));
+
+
+                FragmentList.setTitles(cutent_track);
+
 
 
                 // if(start<=alltracks.size()) {
@@ -406,6 +425,10 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
 
         if (playerNew.isPlaying()) {
             pause_t = true;
+
+            cutent_track_puse = cutent_track;
+            FragmentList.setTitles(cutent_track);
+
         }
 
     }
