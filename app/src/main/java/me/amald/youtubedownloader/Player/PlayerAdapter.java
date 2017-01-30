@@ -78,7 +78,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.MyViewHold
                     FragmentList.startPlay(currentFile);
                     FragmentList.updateBottomControll(sOng.getName());
                     FragmentPlayer.updateControll();
-                    FragmentPlayer.updateBottomControll(sOng.getName(),sOng.getSurname());
+                    FragmentPlayer.updateBottomControll(sOng.getName(),sOng.getSurname(),currentFile);
                     FragmentPlayer.updatePosition();
 
                 } catch (Exception e) {

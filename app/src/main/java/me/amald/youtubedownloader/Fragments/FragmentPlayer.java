@@ -14,6 +14,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import me.amald.youtubedownloader.R;
@@ -26,18 +27,22 @@ import me.amald.youtubedownloader.Util.UtilitiesF;
 
 public class FragmentPlayer extends Fragment implements View.OnClickListener {
 
-    private static ImageView player_c;
+    private static ImageView player_c,next,previ;
     private static MediaPlayer player = null;
     private static MediaPlayer playerNew = null;
     private static String cutent_track = "";
+    private static String cutent_trackData = "";
     private static String cutent_track_sur = "";
     private static TextView song_one, text_two, start_time, end_time;
     private static SeekBar seekbar;
     private static final int UPDATE_FREQUENCY = 500;
+    private static  int start = 1;
+    private static  int start_p = 1;
     private boolean isMoveingSeekBar = false;
     private static UtilitiesF utilities = new UtilitiesF();
     private static int runtime;
     private static boolean pause_t = false;
+    public static ArrayList<String> alltracks = new ArrayList<>();
 
 
     @Nullable
@@ -49,7 +54,13 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
 
         player_c = (ImageView) v.findViewById(R.id.play);
 
+        next = (ImageView) v.findViewById(R.id.playNext);
+
+        previ = (ImageView) v.findViewById(R.id.playPrevious);
+
         player_c.setOnClickListener(this);
+        next.setOnClickListener(this);
+        previ.setOnClickListener(this);
 
         song_one = (TextView) v.findViewById(R.id.text_one);
 
@@ -137,17 +148,29 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
 
     }
 
-    public static void updateBottomControll(String title, String subtitle) {
+    public static void updateBottomControll(String title, String subtitle, String currentFile) {
 
         cutent_track = title;
 
         cutent_track_sur = subtitle;
+
+        cutent_trackData = currentFile;
 
         song_one.setText(title);
         text_two.setText(title);
 
 
     }
+
+
+
+    public static void playNextnPrevious(ArrayList<String> tracks){
+
+        alltracks = tracks;
+
+    }
+
+
 
     public static void seekBarUpdate(int duration, MediaPlayer player) {
 
@@ -255,8 +278,35 @@ public class FragmentPlayer extends Fragment implements View.OnClickListener {
 
                 break;
 
+            case R.id.playNext:
+
+                playNextSong();
+
+                break;
 
         }
+
+    }
+
+    private void playNextSong() {
+
+
+        try {
+            if (alltracks != null && alltracks.size() > 0) {
+
+                if(start<=alltracks.size()) {
+
+                    if (alltracks.get(start) != cutent_trackData) {
+
+                        FragmentList.startPlay(alltracks.get(start));
+                        start++;
+
+                    }
+                }
+
+
+            }
+        }catch (Exception e){}
 
     }
 

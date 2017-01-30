@@ -44,6 +44,7 @@ public class FragmentList extends Fragment implements View.OnClickListener {
     private static TextView title_c;
     private static ImageView play_c;
     private static String cutent_track;
+    private static ArrayList<String> allTracks = new ArrayList<>();
 
     @Nullable
     @Override
@@ -105,7 +106,11 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
                         String data = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
 
+
+
                         if (name != null) {
+
+                            allTracks.add(data);
 
                             SOng a = new SOng(name.replaceAll(".mp3", ""), title, data);
                             songList.add(a);
@@ -134,6 +139,9 @@ public class FragmentList extends Fragment implements View.OnClickListener {
 
 
         }
+
+        FragmentPlayer.playNextnPrevious(allTracks);
+
     }
 
 

@@ -142,6 +142,7 @@
                 android:src="@drawable/play" />
 
             <ImageView
+                android:id="@+id/playNext"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
@@ -151,6 +152,7 @@
                 android:src="@drawable/next" />
 
             <ImageView
+                android:id="@+id/playPrevious"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
